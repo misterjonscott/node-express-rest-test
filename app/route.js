@@ -1,7 +1,10 @@
 const formValidator = require('./form_validator');
 const photoModel = require('./photo_model');
+const UserController = require('./user/UserController');
 
 function route(app) {
+  app.use('/users', UserController);
+
   app.get('/', (req, res) => {
     const tags = req.query.tags;
     const tagmode = req.query.tagmode;
